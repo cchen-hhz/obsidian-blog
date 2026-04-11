@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/infra/KV-cache 初探/","title":"KV-cache","tags":[""],"created":"2026-04-11T16:20:32.251+08:00","updated":"2026-04-11T16:54:54.395+08:00","dg-note-properties":{"title":"KV-cache","tags":[""]}}
+{"dg-publish":true,"permalink":"/infra/KV-cache 初探/","title":"KV-cache","tags":[""],"created":"2026-04-11T16:20:32.251+08:00","updated":"2026-04-11T16:58:37.619+08:00","dg-note-properties":{"title":"KV-cache","tags":[""]}}
 ---
 
 ## 概述
@@ -55,6 +55,8 @@ q_n k_1^\top & q_n k_2^\top & \cdots & q_n k_n^\top
 可以发现 $k,v$ 有一种对称关系，如果缓存了前 $n$ 步的 $k$ 矩阵和 $v$ 矩阵，可与做到只使用 $q_n$ 计算出最后一行，这是 KV cache，缓存了 KV 以及先前的计算结果。
 
 计算一下复杂度，假设隐藏层维度为 $d$，原始 attention 单次预测时间复杂度 $O(n^2d)$ ，引入 KV cache 后，由于 Q 变成一维了，时间复杂度为 $O(nd)$ ，引入额外空间复杂度 $O(nd)$ ，时间上少一个数量级。
+
+并且，原始计算下，需要存储 $N*N$ 的矩阵，现在只需要缓存两个 $N*d$ 的矩阵即可，空间上也有优化，可以说是不用白不用。
 
 ## 限制
 
