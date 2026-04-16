@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/OPSD在线自蒸馏/","title":"OPSD","tags":[""],"created":"2026-04-16T14:35:56.118+08:00","updated":"2026-04-16T23:41:50.717+08:00","dg-note-properties":{"title":"OPSD","tags":[""]}}
+{"dg-publish":true,"permalink":"/OPSD在线自蒸馏/","title":"OPSD","tags":[""],"created":"2026-04-16T14:35:56.118+08:00","updated":"2026-04-17T01:06:05.439+08:00","dg-note-properties":{"title":"OPSD","tags":[""]}}
 ---
 
  On-Policy Self-Distillation
@@ -23,7 +23,7 @@
 
 通常的蒸馏中，会取一个更强大的闭源模型刷数据，此时的蒸馏是 off-policy 的，因为我们固定了采样策略，而待训练的模型策略是一直更新的。
 
-Off-policy distillation 有一些自生的问题，其会限制模型的性能，也会招致一些 hacking 现象。正如上文得 off-policy distillation，其本质还是一个离线 SFT，SFT 得共性问题很难避免。
+off-policy distillation 有一些自生的问题，其会限制模型的性能，也会招致一些 hacking 现象。
 
 于是有人提出了 On-policy，应该追溯到 24 年 [这篇](https://arxiv.org/abs/2306.13649)，总的来说，看是否为 on-policy 的关键在于你取教师的预测还是学生的预测做 teacher-forcing，前者由于你要优化学生分布，二者不一致时 off-policy 的，而后者往往是 on-policy 的。
 
