@@ -1,8 +1,10 @@
 ---
-{"dg-publish":true,"permalink":"/OPSD在线自蒸馏/","title":"OPSD","tags":[""],"created":"2026-04-16T14:35:56.118+08:00","updated":"2026-04-16T23:35:01.444+08:00","dg-note-properties":{"title":"OPSD","tags":[""]}}
+{"dg-publish":true,"permalink":"/OPSD在线自蒸馏/","title":"OPSD","tags":[""],"created":"2026-04-16T14:35:56.118+08:00","updated":"2026-04-16T23:41:50.717+08:00","dg-note-properties":{"title":"OPSD","tags":[""]}}
 ---
 
  On-Policy Self-Distillation
+ 
+[原文](https://arxiv.org/abs/2601.18734)
 
 ~~写的像综述~~
 ## Distillation
@@ -48,7 +50,7 @@ $$\mathbb{E}_{(x,y^*)\sim S}[\mathbb{E}_{\hat{y}\sim p_S(\cdot | x)}[D(p_T \| p_
 
 一个严重的问题是 $D_{KL}$ 通常需要遍历一整个词汇集，算一遍散度计算量爆炸。
 
-从 RL 角度来讲，可以使用一个经典的蒸馏式奖励：
+从 RL 角度来讲，可以使用一个经典的散度式奖励：
 
 $$A_n(x,\hat{y})=\log_{p_T}(\hat{y_n})-\log_{p_S}(\hat{y_n})$$
 $$\ell(x, y^*)=-\mathbb{E}[\sum_{n=1}^{|\hat{y}|}A_n\times \log_{P_S}(\hat{y_n}|x,y_{<n})]$$
